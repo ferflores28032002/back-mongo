@@ -5,8 +5,8 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "outDir": "./dist", // Asegúrate de que esta sea la carpeta correcta
-    "rootDir": "/" // Ruta base de tus archivos fuente
+    "outDir": "./dist", // Carpeta de salida
+    "rootDir": "./src"  // Carpeta raíz de entrada
   },
   "exclude": ["node_modules", "dist"]
 }

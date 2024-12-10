@@ -5,8 +5,8 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "outDir": "./dist", // Carpeta de salida
-    "rootDir": "./src"  // Carpeta raíz de entrada
+    "outDir": "./dist",
+    "rootDir": "./src" 
   },
   "exclude": ["node_modules", "dist"]
 }

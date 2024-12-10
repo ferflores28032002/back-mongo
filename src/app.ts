@@ -8,18 +8,33 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const app = express();
+export const app = express();
 
-// Middleware
-app.use(bodyParser.json());
-app.use(cors());
+ const PORT = parseInt(process.env.PORT || "6000", 10); // Convertir a número
 
-// Rutas
-app.use("/api/tests", testRoutes);
+const startServer = async () => {
+  try {
+    // Conecta a la base de datos antes de iniciar el servidor
+    await connectDB();
 
-swaggerDocs(app, 5000);
+    // Middleware
+    app.use(bodyParser.json());
+    app.use(cors());
 
-// Conexión a la base de datos
-connectDB();
+    // Rutas
+    app.use("/api/tests", testRoutes);
 
-export default app;
+    // Documentación Swagger
+    swaggerDocs(app, PORT); // Ahora PORT es un número
+
+    // Inicia el servidor
+    app.listen(PORT, () => {
+      console.log(`Server running on http://localhost:${PORT}`);
+    });
+  } catch (error) {
+    console.error("Error starting server:", error);
+    process.exit(1);
+  }
+};
+
+startServer();

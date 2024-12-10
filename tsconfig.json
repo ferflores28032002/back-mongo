@@ -8,6 +8,5 @@
     "outDir": "./dist", // Asegúrate de que esta sea la carpeta correcta
     "rootDir": "/" // Ruta base de tus archivos fuente
   },
-  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }
